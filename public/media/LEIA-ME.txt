@@ -1,0 +1,32 @@
+PASTA DE MÍDIA — Clínica Musumeci (Otorrinolaringologia)
+=======================================================
+
+>>> O site já está mostrando FOTOS DE PLACEHOLDER (banco de imagens Unsplash),
+    definidas em  src/data/site.js  ->  objeto "media".
+    Troque cada uma pela foto REAL da clínica.
+
+COMO TROCAR
+  1) Coloque o arquivo nesta pasta (public/media) com um nome simples, ex.: recepcao.jpg
+  2) Em src/data/site.js, troque o valor. Ex.:
+        recepcao: unsplash("1519494026892-80bbd2d6fd0d", 1400),
+     vira:
+        recepcao: "/media/recepcao.jpg",
+  (ou cole a URL de qualquer outra imagem)
+
+IMAGENS USADAS (chave -> onde aparece)
+  hero / heroPoster -> fundo do topo (Home)
+  recepcao          -> galeria "Conheça o espaço" + página Contato
+  consultorio       -> galeria
+  audiometria       -> galeria + bloco "Por que a Clínica" (Home)
+  endoscopia        -> galeria + página A Clínica
+  labirinto         -> galeria (exames de tontura/equilíbrio)
+  infantil          -> galeria (atendimento infantil)
+  equipe            -> página A Clínica
+  cirurgia          -> página Consultas e exames (bloco de cirurgias)
+
+VÍDEO DE FUNDO DO TOPO (opcional)
+  hero.mp4          -> 8-15s, SEM áudio, ~1080p, até ~6 MB.
+                       Se existir, roda por cima da foto de fundo.
+                       Sem ele, a foto do topo ganha um leve zoom automático.
+
+DICA: prefira fotos da própria clínica. Formato: JPG ~1600px no maior lado, até ~400 KB.

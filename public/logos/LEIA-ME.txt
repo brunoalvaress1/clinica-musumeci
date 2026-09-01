@@ -1,0 +1,15 @@
+LOGOS DOS CONVÊNIOS
+===================
+
+A clínica atende: Unimed, Santa Casa e particular.
+
+Arquivos usados (já configurados em src/data/content.js -> CONVENIOS):
+  unimed.png      -> logo da Unimed
+  santacasa.png   -> logo da Santa Casa
+
+(Particular não tem logo — o card mostra "Particular" com um ícone.)
+
+Dica: PNG com fundo transparente ou SVG dão o melhor resultado.
+Sem o arquivo, o card mostra o nome do plano num selo padronizado.
+Para trocar o nome/caminho de um arquivo, edite o campo "logo" em
+src/data/content.js.
