@@ -49,8 +49,11 @@ export const SITE = {
   // Cada chave usa uma imagem DIFERENTE (sem repetir a mesma foto pelo site).
   media: {
     // Vídeo de fundo do topo (Home). Troque por "/media/hero.mp4" ou outra URL.
+    // heroVideo = desktop (alta resolução); heroVideoMobile = versão leve p/ celular.
     heroVideo:
       "https://videos.pexels.com/video-files/6502167/6502167-uhd_2732_1440_25fps.mp4",
+    heroVideoMobile:
+      "https://videos.pexels.com/video-files/6502167/6502167-sd_960_506_25fps.mp4",
     heroPoster: unsplash("1576091160399-112ba8d25d1d", 2000),
     hero: unsplash("1576091160399-112ba8d25d1d", 2000),
 

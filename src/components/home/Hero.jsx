@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Icon from "../ui/Icon.jsx";
 import SoundWave from "../ui/SoundWave.jsx";
@@ -15,28 +15,60 @@ const fadeUp = {
 
 const VIDEO_RATIO = "2732 / 1440"; // proporção do clipe — evita corte no celular
 
+function useIsMobile() {
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    const m = window.matchMedia("(max-width: 639px)");
+    const on = () => setMobile(m.matches);
+    on();
+    m.addEventListener("change", on);
+    return () => m.removeEventListener("change", on);
+  }, []);
+  return mobile;
+}
+
 export default function Hero() {
   const reduce = useReducedMotion();
+  const isMobile = useIsMobile();
   const [noVideo, setNoVideo] = useState(false);
+  const [needsTap, setNeedsTap] = useState(false);
+  const mobileVideoRef = useRef(null);
+
   const showVideo = !noVideo && SITE.media.heroVideo;
+
+  // tenta iniciar o vídeo do celular; se o navegador bloquear, mostra o botão
+  useEffect(() => {
+    if (!isMobile) return;
+    const v = mobileVideoRef.current;
+    if (!v) return;
+    const p = v.play();
+    if (p && typeof p.catch === "function") {
+      p.catch(() => setNeedsTap(true));
+    }
+  }, [isMobile]);
 
   return (
     <section className="relative isolate overflow-hidden bg-brand-700 text-white sm:flex sm:min-h-svh sm:items-center">
-      {/* ================= MOBILE: vídeo como faixa no topo ================= */}
-      <div className="relative sm:hidden">
+      {/* ================= MOBILE: vídeo em faixa no topo ================= */}
+      <div className={isMobile ? "relative sm:hidden" : "hidden"}>
         {showVideo ? (
           <video
+            ref={mobileVideoRef}
             className="w-full object-cover"
             style={{ aspectRatio: VIDEO_RATIO }}
             autoPlay
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             poster={SITE.media.heroPoster}
+            onPlaying={() => setNeedsTap(false)}
             onError={() => setNoVideo(true)}
           >
-            <source src={SITE.media.heroVideo} type="video/mp4" />
+            <source
+              src={SITE.media.heroVideoMobile || SITE.media.heroVideo}
+              type="video/mp4"
+            />
           </video>
         ) : (
           <img
@@ -46,12 +78,28 @@ export default function Hero() {
             style={{ aspectRatio: VIDEO_RATIO }}
           />
         )}
-        {/* o vídeo dissolve no fundo teal para o texto encostar "quase por cima" */}
+
+        {needsTap && showVideo && (
+          <button
+            type="button"
+            onClick={() => mobileVideoRef.current?.play()}
+            aria-label="Reproduzir vídeo"
+            className="absolute inset-0 grid place-items-center bg-brand-700/25"
+          >
+            <span className="grid h-14 w-14 place-items-center rounded-full bg-white/90 text-brand-700 shadow-lg2">
+              <Icon name="play" className="ml-0.5 h-6 w-6" />
+            </span>
+          </button>
+        )}
+
         <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-brand-700 to-transparent" />
       </div>
 
       {/* ================= DESKTOP: vídeo de fundo ================= */}
-      <div aria-hidden className="absolute inset-0 -z-10 hidden sm:block">
+      <div
+        aria-hidden
+        className={isMobile ? "hidden" : "absolute inset-0 -z-10 hidden sm:block"}
+      >
         {SITE.media.heroPoster && (
           <img
             src={SITE.media.heroPoster}
@@ -74,7 +122,7 @@ export default function Hero() {
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             poster={SITE.media.heroPoster}
             onError={() => setNoVideo(true)}
           >

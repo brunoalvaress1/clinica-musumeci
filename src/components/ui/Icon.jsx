@@ -40,6 +40,7 @@ import {
   Volume2,
   ClipboardList,
   Trash2,
+  Play,
 } from "lucide-react";
 
 const MAP = {
@@ -84,6 +85,7 @@ const MAP = {
   volume: Volume2,
   clipboard: ClipboardList,
   trash: Trash2,
+  play: Play,
 };
 
 export default function Icon({ name, className = "h-5 w-5", ...rest }) {
