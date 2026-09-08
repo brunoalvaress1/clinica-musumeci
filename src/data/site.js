@@ -12,12 +12,17 @@ export const SITE = {
   tagline: "Otorrinolaringologia · Leme/SP",
   especialidade: "Otorrinolaringologia",
 
-  // WhatsApp: somente números, com DDI 55 + DDD.
-  // Confirme se o telefone fixo abaixo tem WhatsApp; se o WhatsApp for
-  // um celular, troque apenas "whatsapp".
-  whatsapp: "551935713126",
+  // WhatsApp: somente números, com DDI 55 + DDD. É o celular da clínica.
+  whatsapp: "5519991946076",
+  whatsappLabel: "(19) 99194-6076",
+
+  // Telefones fixos (botão "ligar"). O primeiro é o principal.
   phone: "+551935713126",
   phoneLabel: "(19) 3571-3126",
+  phones: [
+    { label: "(19) 3571-3126", tel: "+551935713126" },
+    { label: "(19) 3554-1318", tel: "+551935541318" },
+  ],
 
   address: {
     street: "R. Joaquim Mourão, 830",
@@ -104,9 +109,49 @@ export const SITE = {
 
 export const ADDRESS_LINE = `${SITE.address.street} — ${SITE.address.district}, ${SITE.address.city}/${SITE.address.state} · CEP ${SITE.address.zip}`;
 
-export const MAPS_QUERY = encodeURIComponent(
-  `${SITE.address.street} - ${SITE.address.district}, ${SITE.address.city} - ${SITE.address.state}, ${SITE.address.zip}`
-);
+// Helpers de mapa a partir de um texto de endereço (usados também pelas unidades).
+export const mapsQuery = (q) => encodeURIComponent(q);
+export const mapsEmbed = (q) =>
+  `https://www.google.com/maps?q=${encodeURIComponent(q)}&output=embed`;
+export const mapsLink = (q) =>
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
 
-export const MAPS_EMBED = `https://www.google.com/maps?q=${MAPS_QUERY}&output=embed`;
-export const MAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${MAPS_QUERY}`;
+const CLINICA_QUERY_TXT = `${SITE.address.street} - ${SITE.address.district}, ${SITE.address.city} - ${SITE.address.state}, ${SITE.address.zip}`;
+
+export const MAPS_QUERY = mapsQuery(CLINICA_QUERY_TXT);
+export const MAPS_EMBED = mapsEmbed(CLINICA_QUERY_TXT);
+export const MAPS_LINK = mapsLink(CLINICA_QUERY_TXT);
+
+// -------------------------------------------------------
+// Unidades — a Clínica hoje e as próximas instalações.
+// Datas informadas pela clínica; ajuste os textos de "nota" conforme o projeto.
+// -------------------------------------------------------
+export const UNITS = [
+  {
+    nome: "Clínica Musumeci",
+    papel: "Unidade em funcionamento",
+    endereco: "R. Joaquim Mourão, 830 — Leme/SP",
+    mapa: "R. Joaquim Mourão, 830 - Leme - SP",
+    quando: "Aberta ao público",
+    aberta: true,
+    nota: "Onde os exames são realizados hoje.",
+  },
+  {
+    nome: "Instituto Musumeci",
+    papel: "Nova unidade",
+    endereco: "R. Fernando Costa, 741 — Leme/SP",
+    mapa: "R. Fernando Costa, 741 - Leme - SP",
+    quando: "Início das atividades previsto para março de 2027",
+    aberta: false,
+    nota: "Nova unidade da Clínica Musumeci, em Leme.",
+  },
+  {
+    nome: "Centro de Estudos da Clínica Musumeci",
+    papel: "Nova unidade",
+    endereco: "R. Joaquim Mourão, 820 — Leme/SP",
+    mapa: "R. Joaquim Mourão, 820 - Leme - SP",
+    quando: "Inauguração prevista para março de 2028",
+    aberta: false,
+    nota: "Espaço voltado a ensino, pesquisa e atualização em otorrinolaringologia.",
+  },
+];

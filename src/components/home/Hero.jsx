@@ -171,8 +171,8 @@ export default function Hero() {
             custom={2}
             className="mt-4 max-w-[38ch] text-[1rem] leading-relaxed text-white/90 sm:mt-6 sm:text-[1.1rem]"
           >
-            Consultas e exames no mesmo lugar, em Leme. Agendamento simples pelo
-            WhatsApp.
+            Exames de ouvido, nariz e garganta no mesmo lugar, em Leme.
+            Agendamento simples pelo WhatsApp.
           </motion.p>
 
           <motion.div variants={fadeUp} custom={3} className="mt-7 sm:mt-9">

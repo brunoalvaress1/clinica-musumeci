@@ -13,10 +13,15 @@ export default function LocationBlock({ showNote = false }) {
             <br />
             {SITE.address.city}/{SITE.address.state} · CEP {SITE.address.zip}
           </InfoItem>
-          <InfoItem icon="phone" title="Telefone">
-            <a className="hover:text-brand-600" href={`tel:${SITE.phone}`}>
-              {SITE.phoneLabel}
-            </a>
+          <InfoItem icon="phone" title="Telefones">
+            {SITE.phones.map((p, i) => (
+              <span key={p.tel}>
+                {i > 0 && <span className="text-ink-muted"> · </span>}
+                <a className="hover:text-brand-600" href={`tel:${p.tel}`}>
+                  {p.label}
+                </a>
+              </span>
+            ))}
           </InfoItem>
           <InfoItem icon="whatsapp" title="WhatsApp">
             <a
@@ -25,7 +30,7 @@ export default function LocationBlock({ showNote = false }) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Enviar mensagem agora
+              {SITE.whatsappLabel}
             </a>
           </InfoItem>
         </ul>

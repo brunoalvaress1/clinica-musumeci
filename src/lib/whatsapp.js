@@ -10,10 +10,10 @@ export function openWhatsApp(text) {
   window.open(waLink(text), "_blank", "noopener,noreferrer");
 }
 
-export const DEFAULT_WA_MESSAGE = `Olá, ${SITE.name}! Vim pelo site e gostaria de informações sobre consultas e exames de otorrino, convênios e horários.`;
+export const DEFAULT_WA_MESSAGE = `Olá, ${SITE.name}! Vim pelo site e gostaria de informações sobre exames de otorrino, convênios e horários.`;
 
 /**
- * Constrói a mensagem detalhada do pedido de consultas/exames.
+ * Constrói a mensagem detalhada do pedido de exames.
  * @param {Array} exams  lista de itens { nome, categoriaNome, preparo }
  * @param {Object} form   { nome, convenio, periodo, obs }
  */

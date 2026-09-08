@@ -5,7 +5,7 @@ import SoundWave from "../ui/SoundWave.jsx";
 import { waLink, DEFAULT_WA_MESSAGE } from "../../lib/whatsapp.js";
 
 export default function CtaBand({
-  title = "Pronto para agendar sua consulta?",
+  title = "Pronto para agendar seu exame?",
   text = "Monte seu pedido em poucos toques e fale com a nossa equipe pelo WhatsApp. Rápido, claro e sem fila.",
 }) {
   return (

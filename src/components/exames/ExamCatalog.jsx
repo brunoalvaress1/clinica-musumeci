@@ -53,7 +53,7 @@ export default function ExamCatalog() {
           onChange={(e) => setQuery(e.target.value)}
           type="search"
           placeholder="Buscar por nome…"
-          aria-label="Buscar consulta ou exame"
+          aria-label="Buscar exame"
           className="w-full rounded-full border border-line-strong py-2.5 pl-11 pr-4 text-[0.95rem] outline-none focus:border-brand"
         />
       </label>

@@ -2,7 +2,7 @@
 
 Site institucional **multipágina** e responsivo de uma clínica de
 **otorrinolaringologia**: hero com **fundo em vídeo**, animações em toda a rolagem
-na mesma paleta, catálogo de consultas/exames e envio de pedido detalhado pelo
+na mesma paleta, catálogo de exames e envio de pedido detalhado pelo
 **WhatsApp**.
 
 ## Stack
@@ -43,9 +43,9 @@ src/
   App.jsx                   rotas
   index.css                 Tailwind + camadas base/components
   data/
-    site.js                 ⚙️ configuração central (WhatsApp, telefone, endereço, horários, portal)
-    exams.js                consultas/exames/procedimentos + categorias + cirurgias
-    content.js              textos (passos, diferenciais, números, depoimentos, FAQ, convênios)
+    site.js                 ⚙️ configuração central (WhatsApp, telefones, endereço, horários, unidades)
+    exams.js                exames + categorias (audio · otoneuro · reabilitacao · video)
+    content.js              textos (missão/visão/valores, passos, diferenciais, números, depoimentos, FAQ, convênios)
   lib/
     whatsapp.js             waLink() e montagem da mensagem do pedido
     cn.js                   merge de classes Tailwind
@@ -70,16 +70,16 @@ public/
 
 Tudo centralizado em **`src/data/site.js`**:
 
-1. **`whatsapp`** — só números, com `55` + DDD. Confirme se o fixo `(19) 3571-3126`
-   tem WhatsApp; se o WhatsApp for um celular, troque só esse campo.
-2. **`phone` / `phoneLabel`** — número para o botão "ligar".
+1. **`whatsapp` / `whatsappLabel`** — celular da clínica `(19) 99194-6076`, só números com `55` + DDD.
+2. **`phone` / `phoneLabel` / `phones[]`** — telefones fixos para o botão "ligar" (`(19) 3571-3126` e `(19) 3554-1318`).
 3. **`address` / `hours`** — endereço confirmado; **horários são exemplos**.
-4. **`resultsUrl`** — link real do portal de laudos on-line.
+4. **`UNITS`** — unidades da clínica (a atual + Instituto Musumeci e Centro de Estudos); ajuste `nota`/`quando`.
 
 Outros pontos:
 
-- **Consultas / exames / cirurgias**: `src/data/exams.js` (`EXAMS`, `CATEGORIES`, `CIRURGIAS`;
-  campos `nome`, `desc`, `preparo`; categorias `consulta` `audio` `endo` `otoneuro` `sono` `proc`).
+- **Exames**: `src/data/exams.js` (`EXAMS`, `CATEGORIES`;
+  campos `nome`, `desc`, `preparo`; categorias `audio` `otoneuro` `reabilitacao` `video`).
+- **Missão, visão e valores**: `src/data/content.js` → `PRINCIPIOS`.
 - **Convênios**: `src/data/content.js` → `CONVENIOS` e `CONVENIO_OPTIONS`.
 - **Números / depoimentos / linha do tempo**: `src/data/content.js` (marcados como ilustrativos).
 - **Imagens**: o site já vem com **fotos de banco de imagens (Unsplash) como placeholder**,

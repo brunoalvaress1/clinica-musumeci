@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Icon from "../ui/Icon.jsx";
-import BrandMark from "../ui/BrandMark.jsx";
+import Logo from "../ui/Logo.jsx";
 import { SITE, ADDRESS_LINE } from "../../data/site.js";
 import { waLink, DEFAULT_WA_MESSAGE } from "../../lib/whatsapp.js";
 
@@ -11,38 +11,28 @@ export default function Footer() {
     <footer className="bg-ink text-[0.92rem] text-[#a9bfc2]">
       <div className="container-x grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr] lg:py-20">
         <div>
-          <Link to="/" className="flex items-center gap-3">
-            <BrandMark className="h-11 w-11 flex-none" />
-            <span className="flex flex-col leading-tight">
-              <strong className="font-display text-[1.12rem] font-semibold text-white">
-                {SITE.name}
-              </strong>
-              <small className="text-[0.72rem] text-[#8aa3a6]">
-                Otorrinolaringologia
-              </small>
-            </span>
+          <Link to="/" className="inline-flex items-center" aria-label={`${SITE.name} — página inicial`}>
+            <Logo light className="h-16 w-auto sm:h-20" />
           </Link>
           <p className="mt-5 max-w-[34ch] leading-relaxed">
-            Clínica de otorrinolaringologia em Leme/SP. Consultas e exames de
-            ouvido, nariz e garganta para todas as idades, com atendimento
-            humanizado.
+            Clínica de otorrinolaringologia em Leme/SP. Exames de ouvido, nariz e
+            garganta para todas as idades, com atendimento humanizado.
           </p>
         </div>
 
         <FooterCol title="Navegação">
           <FooterLink to="/">Início</FooterLink>
           <FooterLink to="/sobre">A Clínica</FooterLink>
-          <FooterLink to="/exames">Consultas e exames</FooterLink>
+          <FooterLink to="/exames">Exames</FooterLink>
           <FooterLink to="/convenios">Convênios</FooterLink>
           <FooterLink to="/contato">Contato</FooterLink>
         </FooterCol>
 
-        <FooterCol title="Serviços">
-          <FooterLink to="/exames?cat=consulta">Consultas</FooterLink>
-          <FooterLink to="/exames?cat=audio">Exames de audição</FooterLink>
-          <FooterLink to="/exames?cat=endo">Endoscopias</FooterLink>
-          <FooterLink to="/exames?cat=otoneuro">Tontura e equilíbrio</FooterLink>
-          <FooterLink to="/exames?cat=sono">Ronco e apneia</FooterLink>
+        <FooterCol title="Exames">
+          <FooterLink to="/exames?cat=audio">Audiologia</FooterLink>
+          <FooterLink to="/exames?cat=otoneuro">Equilíbrio e otoneurologia</FooterLink>
+          <FooterLink to="/exames?cat=reabilitacao">Reabilitação auditiva</FooterLink>
+          <FooterLink to="/exames?cat=video">Exames por vídeo</FooterLink>
         </FooterCol>
 
         <FooterCol title="Contato">
@@ -50,11 +40,13 @@ export default function Footer() {
           <li>
             {SITE.address.district} — {SITE.address.city}/{SITE.address.state}
           </li>
-          <li>
-            <a className="hover:text-white" href={`tel:${SITE.phone}`}>
-              {SITE.phoneLabel}
-            </a>
-          </li>
+          {SITE.phones.map((p) => (
+            <li key={p.tel}>
+              <a className="hover:text-white" href={`tel:${p.tel}`}>
+                {p.label}
+              </a>
+            </li>
+          ))}
           <li>
             <a
               className="hover:text-white"
@@ -62,7 +54,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              WhatsApp
+              WhatsApp {SITE.whatsappLabel}
             </a>
           </li>
         </FooterCol>

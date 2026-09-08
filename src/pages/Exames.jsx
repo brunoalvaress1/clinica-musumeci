@@ -7,7 +7,7 @@ import { waLink } from "../lib/whatsapp.js";
 
 export default function Exames() {
   return (
-    <Page title="Consultas e exames">
+    <Page title="Exames">
       <CatalogHero />
 
       <Section tight>

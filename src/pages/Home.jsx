@@ -17,8 +17,8 @@ const DESTINOS = [
   {
     to: "/exames",
     icon: "ear",
-    title: "Consultas e exames",
-    desc: "Otorrino, audição, endoscopia, labirinto e sono.",
+    title: "Exames",
+    desc: "Audiologia, equilíbrio, reabilitação auditiva e exames por vídeo.",
   },
   {
     to: "/convenios",

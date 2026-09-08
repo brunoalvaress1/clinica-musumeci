@@ -6,7 +6,7 @@ export const CONVENIOS = [
   {
     nome: "Unimed",
     logo: "/logos/unimed.png",
-    nota: "Consultas e exames de otorrino conforme o plano e a autorização.",
+    nota: "Exames de otorrino conforme o plano e a autorização.",
   },
   {
     nome: "Santa Casa",
@@ -51,18 +51,45 @@ export const DOUTORES = [
   {
     nome: "Dr. André Lima",
     crm: "CRM-SP 00.000 · RQE 0000",
-    titulo: "Otorrinolaringologia · garganta, voz e sono",
+    titulo: "Otorrinolaringologia · garganta e voz",
     resumo:
-      "Cuidado com amígdalas e adenoide, alterações de voz e ronco, incluindo a nasofibrolaringoscopia e a triagem de apneia do sono.",
-    focos: ["Amígdalas e adenoide", "Rouquidão", "Ronco e apneia"],
+      "Avaliação de rouquidão e distúrbios da voz e da deglutição, com videofaringolaringoscopia e videoestroboscopia de laringe realizadas na clínica.",
+    focos: ["Rouquidão e voz", "Deglutição", "Exames por vídeo"],
     img: "doutor3",
+  },
+];
+
+// Missão, visão, valores e compromisso — texto institucional da clínica.
+export const PRINCIPIOS = [
+  {
+    titulo: "Nossa Missão",
+    icon: "badge-check",
+    texto:
+      "Oferecer atendimento especializado, unindo excelência técnica, atualização permanente e cuidado humanizado.",
+  },
+  {
+    titulo: "Nossa Visão",
+    icon: "activity",
+    texto:
+      "Evoluir continuamente para oferecer sempre o melhor cuidado e as melhores soluções aos nossos pacientes.",
+  },
+  {
+    titulo: "Nossos Valores",
+    icon: "heart-handshake",
+    texto: "Ética, respeito, humanização, conhecimento e trabalho em equipe.",
+  },
+  {
+    titulo: "Nosso Compromisso",
+    icon: "stethoscope",
+    texto:
+      "Cuidar de cada paciente com atenção, competência e uma equipe integrada, sempre em busca do melhor resultado.",
   },
 ];
 
 export const STEPS = [
   {
     n: "01",
-    titulo: "Escolha o atendimento",
+    titulo: "Escolha o exame",
     texto: "Navegue pela lista e toque em “Adicionar ao pedido”.",
   },
   {
@@ -78,35 +105,35 @@ export const STEPS = [
 ];
 
 export const DIFERENCIAIS = [
-  { icon: "badge-check", titulo: "Especialistas em otorrino", texto: "Consultas e laudos com otorrinolaringologistas." },
-  { icon: "ear", titulo: "Exames no mesmo lugar", texto: "Audição, endoscopia, labirinto e sono num só endereço." },
-  { icon: "baby", titulo: "Do bebê ao idoso", texto: "Teste da orelhinha ao cuidado da audição na terceira idade." },
+  { icon: "badge-check", titulo: "Laudos com especialistas", texto: "Exames realizados e laudados por otorrinolaringologistas e fonoaudiólogas." },
+  { icon: "ear", titulo: "Exames no mesmo lugar", texto: "Audiologia, equilíbrio, reabilitação auditiva e exames por vídeo num só endereço." },
+  { icon: "baby", titulo: "Do bebê ao idoso", texto: "Da triagem auditiva infantil ao cuidado da audição na terceira idade." },
   { icon: "clock", titulo: "Laudo no mesmo dia", texto: "Boa parte dos exames sai no dia da realização." },
 ];
 
 export const STATS = [
   { valor: 30, sufixo: "+", label: "anos em ouvido, nariz e garganta" },
-  { valor: 18, sufixo: "", label: "exames no mesmo endereço" },
-  { valor: 20, sufixo: "+", label: "convênios atendidos" },
+  { valor: 21, sufixo: "", label: "exames no mesmo endereço" },
+  { valor: 2, sufixo: "", label: "convênios + atendimento particular" },
   { valor: 98, sufixo: "%", label: "de pacientes que indicam" },
 ];
 
 export const TESTIMONIALS = [
   {
     texto:
-      "Marquei pela mensagem num domingo, fiz a consulta e a audiometria no mesmo dia e saímos com o tratamento definido.",
+      "Marquei pela mensagem num domingo, fiz a audiometria no mesmo dia e saí com o laudo em mãos.",
     autor: "Patrícia S.",
     cidade: "Leme/SP",
   },
   {
     texto:
-      "Fiz a consulta e o exame de labirinto no mesmo lugar, sem ficar rodando por outras clínicas. Atendimento muito atencioso.",
+      "Fiz a audiometria e o exame de labirinto no mesmo lugar, sem ficar rodando por outras clínicas. Atendimento muito atencioso.",
     autor: "Antônio C.",
     cidade: "Santa Cruz da Conceição/SP",
   },
   {
     texto:
-      "A nasofibro foi bem mais rápida do que eu imaginava e recebi o laudo com as imagens no mesmo dia.",
+      "A videofaringolaringoscopia foi bem mais rápida do que eu imaginava e recebi o laudo com as imagens no mesmo dia.",
     autor: "Juliana M.",
     cidade: "Leme/SP",
   },
@@ -118,15 +145,15 @@ export const FAQ = [
     a: "Para agendar, não. Leve o pedido se já tiver — ele ajuda na autorização do convênio.",
   },
   {
-    q: "A nasofibrolaringoscopia dói?",
+    q: "A videofaringolaringoscopia dói?",
     a: "É rápida, feita no consultório com anestésico local no nariz. Causa só um leve incômodo, sem sedação.",
   },
   {
     q: "Estou com tontura. Qual exame fazer?",
-    a: "Passe primeiro pela consulta. Se necessário, o médico solicita a videonistagmografia, feita aqui mesmo.",
+    a: "Leve o pedido do seu médico. Fazemos o exame otoneurológico (Vídeo Frenzel) e a vectoeletronistagmografia computadorizada aqui mesmo.",
   },
   {
     q: "Vocês atendem crianças?",
-    a: "Sim: consulta infantil, teste da orelhinha, BERA e audiometria lúdica, com equipe acostumada ao público infantil.",
+    a: "Sim: avaliação audiológica infantil (Peep Show), emissões otoacústicas e PEATE, com equipe acostumada ao público infantil.",
   },
 ];

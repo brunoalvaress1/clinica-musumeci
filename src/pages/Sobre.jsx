@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import Page from "../components/ui/Page.jsx";
 import MediaFrame from "../components/ui/MediaFrame.jsx";
+import Principios from "../components/sobre/Principios.jsx";
 import DoctorsScroll from "../components/sobre/DoctorsScroll.jsx";
+import Unidades from "../components/sobre/Unidades.jsx";
 import PhotoGallery from "../components/common/PhotoGallery.jsx";
 import Testimonials from "../components/home/Testimonials.jsx";
 import { SITE } from "../data/site.js";
@@ -21,10 +23,10 @@ export default function Sobre() {
               A Clínica Musumeci
             </h1>
             <p className="mt-4 max-w-[54ch] leading-relaxed text-ink-soft">
-              Otorrinolaringologia no centro de Leme, num só endereço: médicos
-              otorrino e fonoaudiólogas, exames de audição, endoscopia, exames de
-              labirinto e avaliação do sono. Na maioria dos casos, a consulta e
-              os exames são resolvidos na mesma visita.
+              Otorrinolaringologia no centro de Leme, num só endereço: exames de
+              audiologia, de equilíbrio, de reabilitação auditiva e exames por
+              vídeo de nariz, garganta e laringe. Boa parte dos laudos sai no
+              mesmo dia.
             </p>
             <p className="mt-3 max-w-[54ch] leading-relaxed text-ink-soft">
               Trabalhamos com protocolos de qualidade, rastreabilidade dos exames
@@ -48,8 +50,14 @@ export default function Sobre() {
         </div>
       </section>
 
+      {/* ---------- Missão, visão e valores ---------- */}
+      <Principios />
+
       {/* ---------- Corpo clínico ---------- */}
       <DoctorsScroll />
+
+      {/* ---------- Unidades (clínica + futuras instalações) ---------- */}
+      <Unidades />
 
       {/* ---------- Conheça a clínica (só fotos do espaço) ---------- */}
       <PhotoGallery />

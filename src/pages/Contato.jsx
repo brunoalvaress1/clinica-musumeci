@@ -14,12 +14,12 @@ import { CONVENIO_OPTIONS } from "../data/content.js";
 import { openWhatsApp, waLink, DEFAULT_WA_MESSAGE } from "../lib/whatsapp.js";
 
 const ASSUNTOS = [
-  "Agendar consulta de otorrino",
-  "Agendar exame (audiometria, endoscopia, labirinto…)",
+  "Agendar exame (audiometria, vídeo, equilíbrio…)",
   "Confirmar cobertura de convênio",
   "Dúvida sobre preparo de exame",
   "Resultado de exame",
-  "Ronco e apneia do sono",
+  "Aparelho auditivo / reabilitação",
+  "Audiometria ocupacional (empresa)",
   "Outro assunto",
 ];
 
@@ -84,16 +84,20 @@ export default function Contato() {
                   </span>
                 </span>
               </a>
-              <a
-                href={`tel:${SITE.phone}`}
-                className="group flex items-start gap-3 rounded-xl bg-white/10 p-3.5 ring-1 ring-inset ring-white/15 transition-colors hover:bg-white/20"
-              >
+              <div className="flex items-start gap-3 rounded-xl bg-white/10 p-3.5 ring-1 ring-inset ring-white/15">
                 <Icon name="phone" className="mt-0.5 h-5 w-5 flex-none text-accent" />
                 <span className="text-[0.9rem] leading-snug">
-                  <b className="block font-display">Telefone</b>
-                  <span className="text-white/75">{SITE.phoneLabel}</span>
+                  <b className="block font-display">Telefones</b>
+                  {SITE.phones.map((p, i) => (
+                    <span key={p.tel}>
+                      {i > 0 && <span className="text-white/40"> · </span>}
+                      <a className="text-white/75 hover:text-white" href={`tel:${p.tel}`}>
+                        {p.label}
+                      </a>
+                    </span>
+                  ))}
                 </span>
-              </a>
+              </div>
               <a
                 href={waLink(DEFAULT_WA_MESSAGE)}
                 target="_blank"
@@ -103,7 +107,7 @@ export default function Contato() {
                 <Icon name="whatsapp" className="mt-0.5 h-5 w-5 flex-none text-accent" />
                 <span className="text-[0.9rem] leading-snug">
                   <b className="block font-display">WhatsApp</b>
-                  <span className="text-white/75">Abrir conversa</span>
+                  <span className="text-white/75">{SITE.whatsappLabel}</span>
                 </span>
               </a>
             </div>
@@ -197,7 +201,7 @@ export default function Contato() {
                   id="wf-detalhes"
                   value={f.detalhes}
                   onChange={set("detalhes")}
-                  placeholder="Ex.: consulta + audiometria e imitanciometria para meu filho de 6 anos. Tenho pedido médico."
+                  placeholder="Ex.: audiometria e imitanciometria para meu filho de 6 anos. Tenho pedido médico."
                   className={`${inputCls} min-h-[80px] resize-y`}
                 />
               </Field>

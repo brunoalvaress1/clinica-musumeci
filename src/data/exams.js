@@ -1,57 +1,42 @@
 // =========================================================
-// Consultas, exames e procedimentos de otorrinolaringologia.
-// Ajuste livremente com a lista real da clínica.
-// Categorias: "consulta" | "audio" | "endo" | "otoneuro" | "sono" | "proc"
+// Exames realizados na Clínica Musumeci (otorrinolaringologia).
+// Lista oficial informada pela clínica — ajuste `desc` e `preparo`
+// conforme o protocolo interno.
+// Categorias: "audio" | "otoneuro" | "reabilitacao" | "video"
 // =========================================================
 
 export const CATEGORIES = [
   {
-    id: "consulta",
-    nome: "Consultas",
-    icon: "stethoscope",
-    img: "consultorio",
-    desc: "Avaliação com médico otorrinolaringologista para adultos e crianças.",
-    tagline: "avaliação completa de ouvido, nariz e garganta",
-  },
-  {
     id: "audio",
-    nome: "Exames de audição",
+    nome: "Audiologia",
     icon: "ear",
     img: "audiometria",
-    desc: "Audiometria, imitanciometria e testes auditivos para todas as idades.",
-    tagline: "audiometria e testes para todas as idades",
-  },
-  {
-    id: "endo",
-    nome: "Endoscopias",
-    icon: "scan",
-    img: "endoscopia",
-    desc: "Nariz, garganta e laringe avaliados com vídeo em alta definição.",
-    tagline: "nariz e garganta em vídeo, com laudo no dia",
+    desc: "Avaliação completa da audição, para todas as idades.",
+    tagline: "audiometria e testes auditivos para todas as idades",
   },
   {
     id: "otoneuro",
-    nome: "Tontura e equilíbrio",
+    nome: "Equilíbrio e otoneurologia",
     icon: "activity",
     img: "labirinto",
-    desc: "Investigação de labirintite, vertigem e zumbido.",
+    desc: "Investigação de tontura, vertigem e alterações do equilíbrio.",
     tagline: "a origem da sua tontura, investigada a fundo",
   },
   {
-    id: "sono",
-    nome: "Ronco e apneia do sono",
-    icon: "moon",
-    img: "sono",
-    desc: "Triagem e polissonografia para distúrbios do sono.",
-    tagline: "ronco e apneia acompanhados de perto",
+    id: "reabilitacao",
+    nome: "Reabilitação auditiva",
+    icon: "volume",
+    img: "procedimentos",
+    desc: "Aparelhos auditivos, treinamento auditivo e indicação de implantes.",
+    tagline: "do aparelho auditivo ao implante coclear",
   },
   {
-    id: "proc",
-    nome: "Procedimentos",
-    icon: "syringe",
-    img: "procedimentos",
-    desc: "Remoção de cerume, cauterização nasal e mais, em consultório.",
-    tagline: "resolvido ali mesmo, no consultório",
+    id: "video",
+    nome: "Exames por vídeo",
+    icon: "scan",
+    img: "endoscopia",
+    desc: "Nariz, faringe e laringe avaliados com vídeo em alta definição.",
+    tagline: "nariz, garganta e voz em vídeo",
   },
 ];
 
@@ -59,42 +44,164 @@ export const categoryName = (id) =>
   CATEGORIES.find((c) => c.id === id)?.nome ?? "";
 
 export const EXAMS = [
-  // ---------------- Consultas ----------------
-  { id: "consulta-otorrino", cat: "consulta", nome: "Consulta otorrinolaringológica", desc: "Avaliação de ouvido, nariz e garganta, diagnóstico e conduta.", preparo: "Levar exames anteriores e a lista de medicamentos em uso." },
-  { id: "consulta-infantil", cat: "consulta", nome: "Consulta otorrino infantil", desc: "Atendimento voltado a bebês e crianças.", preparo: "Levar a caderneta da criança e o teste da orelhinha, se houver." },
-  { id: "retorno", cat: "consulta", nome: "Retorno / reavaliação", desc: "Acompanhamento de tratamento já iniciado.", preparo: "Trazer o resultado dos exames solicitados na consulta anterior." },
-  { id: "teleorientacao", cat: "consulta", nome: "Teleorientação", desc: "Orientação inicial por vídeo para casos selecionados.", preparo: "Estar em ambiente reservado, com boa conexão e câmera." },
+  // ---------------- Audiologia ----------------
+  {
+    id: "audiometria-tonal",
+    cat: "audio",
+    nome: "Audiometria tonal",
+    desc: "Mede o limiar auditivo em diferentes frequências, por via aérea e óssea.",
+    preparo: "Repouso auditivo de 14 horas (evitar sons altos e fones de ouvido).",
+  },
+  {
+    id: "audiometria-vocal-lrf",
+    cat: "audio",
+    nome: "Audiometria vocal — limiar de reconhecimento de fala (LRF)",
+    desc: "Identifica o menor volume em que a fala é reconhecida.",
+    preparo: "Repouso auditivo de 14 horas. Costuma ser feita junto da audiometria tonal.",
+  },
+  {
+    id: "audiometria-vocal-iprf",
+    cat: "audio",
+    nome: "Audiometria vocal — índice percentual de reconhecimento de fala (IPRF)",
+    desc: "Mede a porcentagem de palavras compreendidas em volume confortável.",
+    preparo: "Repouso auditivo de 14 horas. Costuma ser feita junto da audiometria tonal.",
+  },
+  {
+    id: "avaliacao-infantil-peep-show",
+    cat: "audio",
+    nome: "Avaliação audiológica infantil – Peep Show",
+    desc: "Audiometria lúdica condicionada, para crianças pequenas.",
+    preparo: "Levar a criança descansada e, quando possível, após repouso auditivo.",
+  },
+  {
+    id: "audiometria-ocupacional",
+    cat: "audio",
+    nome: "Audiometria ocupacional",
+    desc: "Avaliação auditiva para admissão, exame periódico e demissão (PCMSO).",
+    preparo:
+      "Repouso auditivo de 14 horas. Levar documento com foto e audiometrias anteriores.",
+  },
+  {
+    id: "imitanciometria",
+    cat: "audio",
+    nome: "Imitanciometria",
+    desc: "Avalia o tímpano, o ouvido médio e o reflexo estapediano.",
+    preparo: "Sem preparo. Informar cirurgias recentes no ouvido.",
+  },
+  {
+    id: "emissoes-otoacusticas",
+    cat: "audio",
+    nome: "Emissões otoacústicas (transiente e produto de distorção)",
+    desc: "Testa a função das células da cóclea; usada também na triagem auditiva de bebês.",
+    preparo: "Sem preparo. Bebês: ir alimentado e com sono.",
+  },
+  {
+    id: "peate",
+    cat: "audio",
+    nome: "Potencial evocado do tronco cerebral (PEATE)",
+    desc: "Avalia a via auditiva do nervo até o tronco cerebral; também conhecido como BERA.",
+    preparo:
+      "Lavar o cabelo sem creme ou óleo. Crianças podem precisar de sono induzido — confirmar orientação.",
+  },
+  {
+    id: "processamento-auditivo-central",
+    cat: "audio",
+    nome: "Avaliação do processamento auditivo central (PAC)",
+    desc: "Como o cérebro interpreta os sons — indicada em dificuldades escolares e de atenção auditiva.",
+    preparo: "Repouso auditivo e boa noite de sono. Idade mínima conforme protocolo.",
+  },
+  {
+    id: "acufenometria",
+    cat: "audio",
+    nome: "Acufenometria",
+    desc: "Mensuração do zumbido (frequência e intensidade) para diagnóstico e acompanhamento.",
+    preparo: "Repouso auditivo de 14 horas.",
+  },
+  {
+    id: "microaudiometria",
+    cat: "audio",
+    nome: "Microaudiometria",
+    desc: "Avaliação auditiva de triagem, mais rápida que a audiometria completa.",
+    preparo: "Repouso auditivo quando possível.",
+  },
 
-  // ---------------- Exames de audição ----------------
-  { id: "audiometria", cat: "audio", nome: "Audiometria tonal e vocal", desc: "Mede o limiar auditivo e a compreensão da fala.", preparo: "Repouso auditivo de 14 horas (evitar sons altos e fones)." },
-  { id: "imitanciometria", cat: "audio", nome: "Imitanciometria (impedanciometria)", desc: "Avalia o tímpano, o ouvido médio e o reflexo estapediano.", preparo: "Sem preparo. Informar cirurgias recentes no ouvido." },
-  { id: "emissoes-otoacusticas", cat: "audio", nome: "Emissões otoacústicas (teste da orelhinha)", desc: "Triagem auditiva de recém-nascidos e bebês.", preparo: "Ideal com o bebê alimentado e dormindo." },
-  { id: "bera", cat: "audio", nome: "BERA / PEATE", desc: "Potencial evocado auditivo de tronco encefálico.", preparo: "Crianças podem precisar de sono induzido — confirmar orientação médica." },
-  { id: "audiometria-infantil", cat: "audio", nome: "Audiometria infantil (lúdica / condicionada)", desc: "Avaliação da audição por brincadeira, para crianças.", preparo: "Repouso auditivo de 14 horas, quando possível." },
-  { id: "processamento-auditivo", cat: "audio", nome: "Avaliação do processamento auditivo central", desc: "Como o cérebro interpreta os sons — indicada em dificuldades escolares.", preparo: "Repouso auditivo e boa noite de sono. Idade mínima conforme protocolo." },
+  // ---------------- Equilíbrio e otoneurologia ----------------
+  {
+    id: "exame-otoneurologico-video-frenzel",
+    cat: "otoneuro",
+    nome: "Exame otoneurológico – Vídeo Frenzel",
+    desc: "Pesquisa de nistagmo com óculos de vídeo, para investigar tontura e vertigem.",
+    preparo:
+      "Suspender medicação para labirinto 48–72 h antes, com aval do médico. Evitar café e álcool 24 h antes. Não usar maquiagem nos olhos.",
+  },
+  {
+    id: "vectoeletronistagmografia",
+    cat: "otoneuro",
+    nome: "Vectoeletronistagmografia computadorizada",
+    desc: "Registro computadorizado dos movimentos oculares para avaliar o labirinto (inclui prova calórica).",
+    preparo:
+      "Mesmo preparo do Vídeo Frenzel: suspender labirintíticos com aval médico, sem maquiagem nos olhos, sem café e álcool 24 h antes.",
+  },
 
-  // ---------------- Endoscopias ----------------
-  { id: "nasofibro", cat: "endo", nome: "Nasofibrolaringoscopia", desc: "Endoscopia flexível de nariz, faringe e laringe.", preparo: "Sem preparo. Pode se alimentar normalmente antes." },
-  { id: "videolaringo", cat: "endo", nome: "Videolaringoscopia", desc: "Avaliação detalhada das pregas vocais e da voz.", preparo: "Evitar refeição pesada na 1 hora anterior." },
-  { id: "rinoscopia", cat: "endo", nome: "Endoscopia nasal (rinoscopia)", desc: "Exame das fossas nasais e da drenagem dos seios da face.", preparo: "Sem preparo." },
-  { id: "degluticao", cat: "endo", nome: "Videoendoscopia da deglutição (FEES)", desc: "Avalia engasgos e dificuldade para engolir.", preparo: "Levar acompanhante. Jejum conforme orientação médica." },
+  // ---------------- Reabilitação auditiva ----------------
+  {
+    id: "adaptacao-aasi",
+    cat: "reabilitacao",
+    nome: "Adaptação de aparelhos auditivos convencionais",
+    desc: "Seleção, molde, programação e acompanhamento do aparelho auditivo.",
+    preparo: "Trazer audiometria recente (até 6 meses).",
+  },
+  {
+    id: "treinamento-auditivo-formal",
+    cat: "reabilitacao",
+    nome: "Treinamento auditivo formal",
+    desc: "Programa de estímulos para desenvolver as habilidades de processamento auditivo.",
+    preparo: "Trazer a avaliação do processamento auditivo, se já tiver.",
+  },
+  {
+    id: "analise-protese-ancorada-osso",
+    cat: "reabilitacao",
+    nome: "Análise de casos selecionados para candidatos a prótese ancorada no osso",
+    desc: "Estudo de indicação de prótese auditiva ancorada no osso.",
+    preparo: "Trazer exames de audição e de imagem já realizados.",
+  },
+  {
+    id: "analise-implante-coclear",
+    cat: "reabilitacao",
+    nome: "Análise de casos selecionados para candidatos a implante coclear",
+    desc: "Avaliação de candidatura ao implante coclear.",
+    preparo: "Trazer exames de audição e de imagem já realizados.",
+  },
 
-  // ---------------- Tontura e equilíbrio ----------------
-  { id: "vng", cat: "otoneuro", nome: "Videonistagmografia (VNG)", desc: "Exame do labirinto para tontura e vertigem.", preparo: "Suspender labirintíticos 48–72h (com aval médico). Sem maquiagem nos olhos. Evitar café e álcool 24h antes." },
-  { id: "prova-calorica", cat: "otoneuro", nome: "Prova calórica", desc: "Testa cada labirinto com estímulo térmico.", preparo: "Mesmo preparo da videonistagmografia." },
-  { id: "vhit", cat: "otoneuro", nome: "vHIT (teste do impulso cefálico)", desc: "Avalia o reflexo vestíbulo-ocular.", preparo: "Levar óculos ou lentes de uso habitual." },
-  { id: "posturografia", cat: "otoneuro", nome: "Avaliação do equilíbrio (posturografia)", desc: "Mede a estabilidade postural e o risco de quedas.", preparo: "Roupas e calçados confortáveis." },
-
-  // ---------------- Ronco e apneia do sono ----------------
-  { id: "polissonografia", cat: "sono", nome: "Polissonografia", desc: "Estudo completo do sono para diagnóstico de apneia.", preparo: "Lavar o cabelo sem produtos. Evitar cochilos e cafeína no dia." },
-  { id: "poligrafia", cat: "sono", nome: "Poligrafia respiratória domiciliar", desc: "Triagem da apneia com aparelho em casa.", preparo: "Seguir o passo a passo entregue com o equipamento." },
-  { id: "ronco", cat: "sono", nome: "Avaliação de ronco e apneia", desc: "Consulta direcionada aos distúrbios do sono.", preparo: "Levar relato de quem dorme ao seu lado, se possível." },
-
-  // ---------------- Procedimentos em consultório ----------------
-  { id: "cerume", cat: "proc", nome: "Remoção de cerume / lavagem de ouvido", desc: "Retirada da cera com microscopia ou lavagem.", preparo: "Pingar óleo mineral ou solução indicada 2–3 dias antes ajuda." },
-  { id: "cauterizacao", cat: "proc", nome: "Cauterização nasal", desc: "Tratamento de sangramentos nasais recorrentes.", preparo: "Evitar aspirina e anti-inflamatórios nos dias anteriores, com aval médico." },
-  { id: "aspiracao", cat: "proc", nome: "Aspiração nasossinusal", desc: "Higiene nasal profissional em quadros de sinusite.", preparo: "Sem preparo." },
-  { id: "aasi", cat: "proc", nome: "Adaptação de aparelho auditivo (AASI)", desc: "Seleção, molde e regulagem do aparelho auditivo.", preparo: "Trazer audiometria recente (até 6 meses)." },
+  // ---------------- Exames por vídeo ----------------
+  {
+    id: "videofaringolaringoscopia",
+    cat: "video",
+    nome: "Videofaringolaringoscopia",
+    desc: "Endoscopia de faringe e laringe com vídeo, avaliando voz e deglutição.",
+    preparo: "Evitar refeição pesada na 1 hora anterior.",
+  },
+  {
+    id: "videoendoscopia-nasossinusal",
+    cat: "video",
+    nome: "Videoendoscopia nasossinusal",
+    desc: "Exame das fossas nasais e da drenagem dos seios da face.",
+    preparo: "Sem preparo.",
+  },
+  {
+    id: "videoendoscopia-degluticao",
+    cat: "video",
+    nome: "Videoendoscopia da deglutição",
+    desc: "Avalia engasgos e dificuldade para engolir, com alimentos de teste (FEES).",
+    preparo: "Levar acompanhante. Jejum conforme orientação da equipe.",
+  },
+  {
+    id: "videoestroboscopia-laringe",
+    cat: "video",
+    nome: "Videoestroboscopia de laringe",
+    desc: "Estudo detalhado da vibração das pregas vocais, para alterações da voz.",
+    preparo: "Evitar refeição pesada na 1 hora anterior.",
+  },
 ];
 
 export const examById = (id) => EXAMS.find((e) => e.id === id);

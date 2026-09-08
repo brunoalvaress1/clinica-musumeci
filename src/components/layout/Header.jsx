@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Icon from "../ui/Icon.jsx";
-import BrandMark from "../ui/BrandMark.jsx";
+import Logo from "../ui/Logo.jsx";
 import Button from "../ui/Button.jsx";
 import { cn } from "../../lib/cn.js";
 import { SITE } from "../../data/site.js";
@@ -11,7 +11,7 @@ import { waLink, DEFAULT_WA_MESSAGE } from "../../lib/whatsapp.js";
 const LINKS = [
   { to: "/", label: "Início", end: true },
   { to: "/sobre", label: "A Clínica" },
-  { to: "/exames", label: "Serviços" },
+  { to: "/exames", label: "Exames" },
   { to: "/convenios", label: "Convênios" },
   { to: "/contato", label: "Contato" },
 ];
@@ -41,19 +41,13 @@ export default function Header() {
           : "border-b border-transparent bg-white/70"
       )}
     >
-      <div className="container-x flex min-h-[76px] items-center justify-between gap-6">
+      <div className="container-x flex min-h-[92px] items-center justify-between gap-6 py-2">
         <Link
           to="/"
-          className="flex items-center gap-3 text-ink"
+          className="flex items-center text-ink"
           aria-label={`${SITE.name} — página inicial`}
         >
-          <BrandMark className="h-11 w-11 flex-none" />
-          <span className="flex flex-col leading-tight">
-            <strong className="font-display text-[1.12rem] font-semibold">
-              {SITE.name}
-            </strong>
-            <small className="text-[0.72rem] text-ink-muted">{SITE.tagline}</small>
-          </span>
+          <Logo className="h-16 w-auto sm:h-20" />
         </Link>
 
         {/* Desktop nav */}

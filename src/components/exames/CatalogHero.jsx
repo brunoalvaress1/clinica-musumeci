@@ -52,10 +52,10 @@ export default function CatalogHero() {
       <div className="container-x relative grid gap-10 lg:grid-cols-[1fr_minmax(0,420px)] lg:items-center lg:gap-16">
         <div>
           <h1 className="font-sans text-[clamp(1.9rem,3.2vw+1rem,3rem)] font-semibold leading-[1.12] tracking-tight text-white">
-            Consultas e exames de otorrinolaringologia
+            Exames de otorrinolaringologia
           </h1>
           <p className="mt-4 max-w-[52ch] text-[1.02rem] leading-relaxed text-white/80">
-            Selecione uma área para ver os atendimentos disponíveis. Você monta o
+            Selecione uma área para ver os exames disponíveis. Você monta o
             pedido e envia pelo WhatsApp — o preparo de cada exame vai junto na
             mensagem.
           </p>
