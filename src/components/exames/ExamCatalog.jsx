@@ -117,7 +117,7 @@ function CategoryCard({ cat, items, open, onToggle, index }) {
         />
         <span
           className={cn(
-            "flex-1 font-display text-[1.05rem] leading-tight transition-colors sm:text-[1.15rem]",
+            "min-w-0 flex-1 font-display text-[1.05rem] leading-tight transition-colors sm:text-[1.15rem]",
             open ? "text-brand-700" : "text-ink group-hover:text-brand-700"
           )}
         >
@@ -142,17 +142,17 @@ function CategoryCard({ cat, items, open, onToggle, index }) {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.22, 0.61, 0.36, 1] }}
-            className="overflow-hidden"
+            className="min-w-0 overflow-hidden"
           >
-            <div className="grid gap-5 pb-6 sm:pl-10 lg:grid-cols-[minmax(0,300px)_1fr] lg:gap-8">
+            <div className="grid min-w-0 gap-5 pb-6 lg:grid-cols-[minmax(0,280px)_minmax(0,1fr)] lg:gap-8 lg:pl-10">
               <MediaFrame
                 src={SITE.media[cat.img]}
                 alt={cat.nome}
                 icon={cat.icon}
                 ratio="aspect-[3/2]"
-                className="lg:self-start"
+                className="min-w-0 max-w-full lg:self-start"
               />
-              <ul className="divide-y divide-line border-t border-line lg:border-t-0">
+              <ul className="min-w-0 divide-y divide-line border-t border-line lg:border-t-0">
                 {items.map((ex, i) => (
                   <ExamRow key={ex.id} exam={ex} index={i} />
                 ))}
@@ -178,20 +178,20 @@ function ExamRow({ exam, withCategory = false, index = 0 }) {
 
   return (
     <motion.li
-      className="list-none py-3.5"
+      className="list-none min-w-0 max-w-full py-3.5"
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: Math.min(index * 0.035, 0.4) }}
     >
-      <div className="flex items-center gap-3">
+      <div className="flex min-w-0 flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-3">
         <button
           type="button"
           onClick={() => setOpen((o) => !o)}
           aria-expanded={open}
-          className="flex min-w-0 flex-1 items-center gap-2 text-left"
+          className="flex w-full min-w-0 flex-1 items-start gap-2 text-left sm:items-center"
         >
           <span className="min-w-0">
-            <span className="block truncate font-medium leading-snug text-ink">
+            <span className="block font-medium leading-snug text-ink [overflow-wrap:anywhere]">
               {exam.nome}
             </span>
             {withCategory && (
@@ -270,10 +270,10 @@ function ExamRow({ exam, withCategory = false, index = 0 }) {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="overflow-hidden"
+            className="min-w-0 max-w-full overflow-hidden"
           >
-            <p className="pt-2 text-[0.86rem] text-ink-muted">{exam.desc}</p>
-            <p className="mt-1 text-[0.86rem]">
+            <p className="pt-2 text-[0.86rem] text-ink-muted [overflow-wrap:anywhere]">{exam.desc}</p>
+            <p className="mt-1 text-[0.86rem] [overflow-wrap:anywhere]">
               <span className="font-semibold text-brand-700">Preparo:</span>{" "}
               <span className="text-ink-muted">{exam.preparo}</span>
             </p>
