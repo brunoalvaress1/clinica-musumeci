@@ -30,49 +30,45 @@ export default function CatalogHero() {
   return (
     <section
       ref={ref}
-      className="relative isolate flex items-center overflow-hidden bg-brand-700 py-16 text-white sm:py-20"
+      className="relative isolate overflow-hidden bg-brand-700 py-8 text-white sm:py-14 lg:py-20"
     >
-      {/* fundo: tom borrado da categoria em destaque (sem corte perceptível) */}
-      <div aria-hidden className="absolute inset-0 -z-10">
+      <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden">
         <AnimatePresence initial={false}>
           <motion.img
             key={active.id}
             src={SITE.media[active.img]}
             alt=""
             initial={{ opacity: 0 }}
-            animate={{ opacity: reduce ? 0.28 : 0.4 }}
+            animate={{ opacity: reduce ? 0.2 : 0.35 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
-            className="absolute inset-0 h-full w-full scale-125 object-cover blur-2xl"
+            transition={{ duration: 0.6 }}
+            className="absolute inset-0 hidden h-full w-full object-cover blur-2xl sm:block"
           />
         </AnimatePresence>
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-700 via-brand-700/90 to-brand-700/75" />
+        <div className="absolute inset-0 bg-brand-700 sm:bg-gradient-to-br sm:from-brand-700 sm:via-brand-700/92 sm:to-brand-700/80" />
       </div>
 
-      <div className="container-x relative grid gap-10 lg:grid-cols-[1fr_minmax(0,420px)] lg:items-center lg:gap-16">
-        <div>
-          <h1 className="font-sans text-[clamp(1.9rem,3.2vw+1rem,3rem)] font-semibold leading-[1.12] tracking-tight text-white">
+      <div className="container-x relative grid min-w-0 gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] lg:items-center lg:gap-16">
+        <div className="min-w-0">
+          <h1 className="max-w-[16ch] font-sans text-[1.7rem] font-semibold leading-[1.15] tracking-tight text-white sm:max-w-none sm:text-[clamp(1.9rem,3.2vw+1rem,3rem)] sm:leading-[1.12]">
             Exames de otorrinolaringologia
           </h1>
-          <p className="mt-4 max-w-[52ch] text-[1.02rem] leading-relaxed text-white/80">
-            Selecione uma área para ver os exames disponíveis. Você monta o
-            pedido e envia pelo WhatsApp — o preparo de cada exame vai junto na
-            mensagem.
+          <p className="mt-3 max-w-[40ch] text-[0.95rem] leading-relaxed text-white/80 sm:mt-4 sm:text-[1.02rem]">
+            Selecione uma área para ver os exames. O pedido segue pelo
+            WhatsApp, com o preparo de cada um.
           </p>
         </div>
 
-        {/* áreas */}
-        <div className="-mx-4 flex snap-x gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] lg:mx-0 lg:grid lg:grid-cols-2 lg:overflow-visible lg:px-0">
+        <div className="grid min-w-0 grid-cols-2 gap-2.5 sm:gap-3">
           {CATEGORIES.map((c, i) => {
             const on = active.id === c.id;
             return (
               <motion.div
                 key={c.id}
-                initial={{ opacity: 0, y: 14 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, delay: 0.08 + i * 0.05 }}
-                whileHover={reduce ? undefined : { y: -3 }}
-                className="min-w-[184px] snap-start lg:min-w-0"
+                transition={{ duration: 0.35, delay: 0.05 + i * 0.04 }}
+                className="min-w-0"
               >
                 <button
                   type="button"
@@ -81,7 +77,7 @@ export default function CatalogHero() {
                   onFocus={() => setActive(c)}
                   aria-label={`Ver ${c.nome}`}
                   className={cn(
-                    "flex h-full w-full flex-col rounded-xl p-4 text-left ring-1 backdrop-blur-md transition-colors",
+                    "flex h-full w-full min-w-0 flex-col rounded-xl p-3 text-left ring-1 transition-colors sm:p-4",
                     on
                       ? "bg-white/15 ring-white/30"
                       : "bg-white/[0.06] ring-white/10 hover:bg-white/10"
@@ -89,16 +85,16 @@ export default function CatalogHero() {
                 >
                   <span
                     className={cn(
-                      "grid h-9 w-9 place-items-center rounded-lg transition-colors",
+                      "grid h-8 w-8 place-items-center rounded-lg transition-colors",
                       on ? "bg-accent text-[#3a2a06]" : "bg-white/10 text-white"
                     )}
                   >
-                    <Icon name={c.icon} className="h-[18px] w-[18px]" />
+                    <Icon name={c.icon} className="h-4 w-4" />
                   </span>
-                  <span className="mt-5 block text-[0.95rem] font-medium leading-tight text-white">
+                  <span className="mt-3 block text-[0.88rem] font-medium leading-snug text-white sm:text-[0.95rem]">
                     {c.nome}
                   </span>
-                  <span className="mt-1 text-[0.76rem] text-white/55">
+                  <span className="mt-1 text-[0.72rem] text-white/60">
                     {countFor(c.id)} itens
                   </span>
                 </button>
