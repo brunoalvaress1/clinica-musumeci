@@ -7,9 +7,9 @@ import { cn } from "../../lib/cn.js";
  */
 const COLORS = {
   white: "#ffffff",
-  surface: "#f3f7f7",
-  ink: "#084c53", // brand-700
-  brand: "#0d7b84",
+  surface: "#F6F3ED",
+  ink: "#121C2E",
+  brand: "#1B2A41",
 };
 
 export default function WaveDivider({

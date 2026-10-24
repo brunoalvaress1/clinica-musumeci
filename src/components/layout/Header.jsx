@@ -41,13 +41,13 @@ export default function Header() {
           : "border-b border-transparent bg-white/70"
       )}
     >
-      <div className="container-x flex min-h-[92px] items-center justify-between gap-6 py-2">
+      <div className="container-x flex min-h-[92px] items-center justify-between gap-6 py-2 sm:min-h-[108px]">
         <Link
           to="/"
           className="flex items-center text-ink"
           aria-label={`${SITE.name} — página inicial`}
         >
-          <Logo className="h-16 w-auto sm:h-20" />
+          <Logo className="h-[5.5rem] w-auto sm:h-28 lg:h-32" />
         </Link>
 
         {/* Desktop nav */}

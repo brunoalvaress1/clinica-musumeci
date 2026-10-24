@@ -15,27 +15,27 @@ export default {
     extend: {
       colors: {
         ink: {
-          DEFAULT: "#10262d",
-          soft: "#3a4e54",
-          muted: "#61757b",
+          DEFAULT: "#1A2433",
+          soft: "#44505C",
+          muted: "#6E7883",
         },
         line: {
-          DEFAULT: "#dce6e7",
-          strong: "#c3d3d4",
+          DEFAULT: "#E6E0D6",
+          strong: "#D4CDBF",
         },
         surface: {
-          DEFAULT: "#f3f7f7",
-          2: "#eaf2f1",
+          DEFAULT: "#F6F3ED",
+          2: "#EFEAE1",
         },
         brand: {
-          50: "#e6f2f2",
-          DEFAULT: "#0d7b84",
-          600: "#0a616a",
-          700: "#084c53",
+          50: "#EEF2F4",
+          DEFAULT: "#1B2A41",
+          600: "#3E6A78",
+          700: "#121C2E",
         },
         accent: {
-          DEFAULT: "#e0a53d",
-          600: "#c98c22",
+          DEFAULT: "#C6B48A",
+          600: "#A8946A",
         },
         wa: {
           DEFAULT: "#1faa54",

@@ -25,7 +25,7 @@ export default function Aurora({ className, intensity = 1 }) {
         className={cn(common, "-left-32 top-[-12%] h-[38rem] w-[38rem]")}
         style={{
           background:
-            "radial-gradient(circle, rgba(224,165,61,.22), transparent 62%)",
+            "radial-gradient(circle, rgba(198,180,138,.22), transparent 62%)",
         }}
         animate={loopA}
         transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
@@ -34,7 +34,7 @@ export default function Aurora({ className, intensity = 1 }) {
         className={cn(common, "-right-40 bottom-[-24%] h-[44rem] w-[44rem]")}
         style={{
           background:
-            "radial-gradient(circle, rgba(13,123,132,.30), transparent 62%)",
+            "radial-gradient(circle, rgba(62,106,120,.28), transparent 62%)",
         }}
         animate={loopB}
         transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}

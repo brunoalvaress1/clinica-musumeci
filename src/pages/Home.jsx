@@ -4,7 +4,6 @@ import Hero from "../components/home/Hero.jsx";
 import Section from "../components/ui/Section.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
 import Icon from "../components/ui/Icon.jsx";
-import WaveDivider from "../components/ui/WaveDivider.jsx";
 import { waLink, DEFAULT_WA_MESSAGE } from "../lib/whatsapp.js";
 
 const DESTINOS = [
@@ -38,7 +37,6 @@ export default function Home() {
   return (
     <Page title="Otorrinolaringologia em Leme/SP">
       <Hero />
-      <WaveDivider from="ink" color="white" />
 
       <Section>
         <Reveal>

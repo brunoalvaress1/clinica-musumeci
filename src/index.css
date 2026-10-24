@@ -13,7 +13,7 @@
   }
 
   body {
-    @apply bg-white font-sans text-ink-soft antialiased;
+    @apply bg-surface font-sans text-ink-soft antialiased;
     font-size: clamp(15.5px, 0.5vw + 14px, 17px);
     line-height: 1.65;
     overflow-x: hidden;
@@ -56,7 +56,7 @@
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 font-sans text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-brand-600;
+    @apply inline-flex items-center gap-2 font-sans text-[0.8rem] font-medium text-brand-600;
   }
   .eyebrow::before {
     content: "";

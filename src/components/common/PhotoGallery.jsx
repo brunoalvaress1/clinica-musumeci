@@ -7,6 +7,33 @@ import { SITE } from "../../data/site.js";
 
 const FOTOS = SITE.galeria || [];
 
+function keepQuiet(e) {
+  const v = e.currentTarget;
+  v.muted = true;
+  v.volume = 0;
+}
+
+function Frame({ item, className, play = false }) {
+  if (play && item.video) {
+    return (
+      <video
+        className={className}
+        poster={item.img}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        onPlay={keepQuiet}
+        onVolumeChange={keepQuiet}
+      >
+        <source src={item.video} type="video/mp4" />
+      </video>
+    );
+  }
+  return <img src={item.img} alt={item.cap} loading="lazy" className={className} />;
+}
+
 export default function PhotoGallery({
   eyebrow = "O espaço",
   title = "Conheça a clínica",
@@ -60,7 +87,7 @@ export default function PhotoGallery({
           onClick={() => setOpen(true)}
           className="inline-flex items-center gap-2 rounded-full border border-line-strong px-5 py-2.5 text-[0.88rem] font-semibold text-ink transition-colors hover:border-brand hover:text-brand-700"
         >
-          Ver todas as fotos
+          Ver todas
           <span className="text-ink-muted">({FOTOS.length})</span>
         </button>
       </div>
@@ -70,7 +97,7 @@ export default function PhotoGallery({
         {preview.map((f, i) => (
           <button
             type="button"
-            key={f.img}
+            key={f.video || f.img}
             onClick={() => {
               setOpen(true);
               setZoom(i);
@@ -80,15 +107,19 @@ export default function PhotoGallery({
               i === 0 && "sm:col-span-2 sm:row-span-2"
             )}
           >
-            <img
-              src={f.img}
-              alt={f.cap}
-              loading="lazy"
+            <Frame
+              item={f}
+              play
               className={cn(
                 "h-full w-full object-cover transition-transform duration-500 group-hover:scale-105",
                 i === 0 ? "aspect-[4/3] sm:aspect-auto" : "aspect-[4/3]"
               )}
             />
+            {f.video && (
+              <span className="pointer-events-none absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-white/90 text-brand-700">
+                <Icon name="play" className="ml-0.5 h-3.5 w-3.5" />
+              </span>
+            )}
             <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
             <span className="pointer-events-none absolute bottom-2 left-3 text-[0.78rem] font-medium text-white opacity-0 transition-opacity group-hover:opacity-100">
               {f.cap}
@@ -115,7 +146,7 @@ export default function PhotoGallery({
               <div className="flex items-center justify-between text-white">
                 <p className="font-medium">
                   {title}{" "}
-                  <span className="text-white/60">· {FOTOS.length} fotos</span>
+                  <span className="text-white/60">· {FOTOS.length}</span>
                 </p>
                 <button
                   type="button"
@@ -136,16 +167,19 @@ export default function PhotoGallery({
                 {FOTOS.map((f, i) => (
                   <button
                     type="button"
-                    key={f.img}
+                    key={f.video || f.img}
                     onClick={() => setZoom(i)}
                     className="group relative h-max overflow-hidden rounded-xl bg-white/5"
                   >
-                    <img
-                      src={f.img}
-                      alt={f.cap}
-                      loading="lazy"
+                    <Frame
+                      item={f}
                       className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
+                    {f.video && (
+                      <span className="pointer-events-none absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-white/90 text-brand-700">
+                        <Icon name="play" className="ml-0.5 h-3.5 w-3.5" />
+                      </span>
+                    )}
                     <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent px-2.5 pb-1.5 pt-6 text-left text-[0.74rem] font-medium text-white">
                       {f.cap}
                     </span>
@@ -184,11 +218,26 @@ export default function PhotoGallery({
                     className="max-h-full max-w-4xl"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <img
-                      src={FOTOS[zoom].img}
-                      alt={FOTOS[zoom].cap}
-                      className="max-h-[78vh] w-auto rounded-xl object-contain"
-                    />
+                    {FOTOS[zoom].video ? (
+                      <video
+                        key={FOTOS[zoom].video}
+                        src={FOTOS[zoom].video}
+                        poster={FOTOS[zoom].img}
+                        controls
+                        autoPlay
+                        muted
+                        playsInline
+                        onPlay={keepQuiet}
+                        onVolumeChange={keepQuiet}
+                        className="max-h-[78vh] w-auto rounded-xl"
+                      />
+                    ) : (
+                      <img
+                        src={FOTOS[zoom].img}
+                        alt={FOTOS[zoom].cap}
+                        className="max-h-[78vh] w-auto rounded-xl object-contain"
+                      />
+                    )}
                     <figcaption className="mt-3 text-center text-[0.85rem] text-white/80">
                       {FOTOS[zoom].cap} · {zoom + 1} / {FOTOS.length}
                     </figcaption>

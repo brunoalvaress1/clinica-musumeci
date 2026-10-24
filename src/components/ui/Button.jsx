@@ -7,7 +7,7 @@ const VARIANTS = {
   brand: "bg-brand text-white border-brand hover:bg-brand-600 hover:border-brand-600",
   wa: "bg-wa text-white border-wa hover:bg-wa-600 hover:border-wa-600",
   accent:
-    "bg-accent text-[#3a2a06] border-accent hover:bg-accent-600 hover:border-accent-600",
+    "bg-accent text-[#2a2418] border-accent hover:bg-accent-600 hover:border-accent-600",
   ghost:
     "bg-transparent text-ink border-line-strong hover:bg-ink hover:text-white hover:border-ink",
   ghostLight:
@@ -21,7 +21,7 @@ const SIZES = {
 };
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full border-[1.5px] font-semibold leading-none " +
+  "inline-flex items-center justify-center gap-2 rounded-lg border-[1.5px] font-semibold leading-none " +
   "transition-colors duration-200 shadow-none hover:shadow-md2 focus-visible:outline-offset-4";
 
 const Button = forwardRef(function Button(
@@ -29,11 +29,7 @@ const Button = forwardRef(function Button(
   ref
 ) {
   const classes = cn(base, VARIANTS[variant], SIZES[size], className);
-  const motionProps = {
-    whileHover: { y: -2 },
-    whileTap: { y: 0 },
-    transition: { type: "spring", stiffness: 400, damping: 22 },
-  };
+  const motionProps = {};
 
   if (to) {
     return (

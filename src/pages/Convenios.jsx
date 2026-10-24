@@ -1,8 +1,7 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import Page from "../components/ui/Page.jsx";
 import Section, { SectionHead } from "../components/ui/Section.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
-import Icon from "../components/ui/Icon.jsx";
 import ConveniosExplorer from "../components/convenios/ConveniosExplorer.jsx";
 import { waLink } from "../lib/whatsapp.js";
 
@@ -13,20 +12,8 @@ const DOCS = [
 ];
 
 function RadarBg() {
-  const reduce = useReducedMotion();
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-      <div className="absolute left-1/2 top-8 -translate-x-1/2">
-        {[0, 1, 2, 3].map((i) => (
-          <motion.span
-            key={i}
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-brand/15"
-            style={{ width: 220 + i * 240, height: 220 + i * 240 }}
-            animate={reduce ? undefined : { scale: [1, 1.05, 1], opacity: [0.45, 0.8, 0.45] }}
-            transition={{ duration: 6 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
-          />
-        ))}
-      </div>
       <div
         className="absolute inset-0"
         style={{

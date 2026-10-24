@@ -32,30 +32,49 @@ export const CONVENIO_OPTIONS = [
 export const DOUTORES = [
   {
     nome: "Dr. Paulo Musumeci",
-    crm: "CRM-SP 00.000 · RQE 0000",
-    titulo: "Otorrinolaringologia · nariz e seios da face",
+    crm: "Otorrinolaringologista",
+    titulo: "Otologia, otoneurologia, cirurgia e reabilitação auditiva",
     resumo:
-      "Diagnóstico e tratamento de obstrução nasal, rinite, sinusite crônica e desvio de septo, com endoscopia nasal no próprio consultório.",
-    focos: ["Rinite e sinusite", "Desvio de septo", "Endoscopia nasal"],
+      "Atendimento especializado em audição, tonturas e equilíbrio, com integração entre o diagnóstico médico e a reabilitação auditiva na própria clínica.",
+    focos: ["Otologia", "Otoneurologia", "Cirurgia", "Reabilitação auditiva"],
     img: "doutor1",
+    initials: "PM",
   },
   {
-    nome: "Dr. Ricardo Almeida",
-    crm: "CRM-SP 00.000 · RQE 0000",
-    titulo: "Otorrinolaringologia · ouvido e audição",
+    nome: "Dr. Ricardo Musumeci Silenci",
+    crm: "Otorrinolaringologista",
+    titulo: "Otorrinolaringologia",
     resumo:
-      "Avaliação de perda auditiva, zumbido, tontura e labirintite, com audiometria e exames de equilíbrio realizados na clínica.",
-    focos: ["Tontura e labirintite", "Zumbido", "Perda auditiva"],
+      "Atendimento em otorrinolaringologia na Clínica Musumeci, junto à equipe de diagnóstico e reabilitação auditiva.",
+    focos: ["Otorrinolaringologia", "Diagnóstico", "Reabilitação auditiva"],
+    img: "doutor3",
+  },
+  {
+    nome: "Dr. Marcelo Antonio Kiyota Moutinho",
+    crm: "Otorrinolaringologista",
+    titulo: "Otorrinolaringologia",
+    resumo: "Atendimento em otorrinolaringologia na Clínica Musumeci.",
+    focos: ["Otorrinolaringologia"],
+    img: "doutor4",
+    enquadre: "center 42%",
+  },
+  {
+    nome: "Dra. Aline Bazon",
+    crm: "Fonoaudióloga",
+    titulo: "Fonoaudiologia integrada ao cuidado médico",
+    resumo:
+      "Atua junto aos otorrinolaringologistas na avaliação da audição, no diagnóstico e no acompanhamento da reabilitação.",
+    focos: ["Audiologia", "Reabilitação", "Exames diagnósticos"],
     img: "doutor2",
   },
   {
-    nome: "Dr. André Lima",
-    crm: "CRM-SP 00.000 · RQE 0000",
-    titulo: "Otorrinolaringologia · garganta e voz",
+    nome: "Dra. Carolina Marchiori Proni",
+    crm: "Fonoaudióloga",
+    titulo: "Fonoaudiologia integrada ao cuidado médico",
     resumo:
-      "Avaliação de rouquidão e distúrbios da voz e da deglutição, com videofaringolaringoscopia e videoestroboscopia de laringe realizadas na clínica.",
-    focos: ["Rouquidão e voz", "Deglutição", "Exames por vídeo"],
-    img: "doutor3",
+      "Atua junto aos otorrinolaringologistas na avaliação da audição, no diagnóstico e no acompanhamento da reabilitação.",
+    focos: ["Audiologia", "Reabilitação", "Exames diagnósticos"],
+    img: "doutor5",
   },
 ];
 
@@ -65,7 +84,7 @@ export const PRINCIPIOS = [
     titulo: "Nossa Missão",
     icon: "badge-check",
     texto:
-      "Oferecer atendimento especializado, unindo excelência técnica, atualização permanente e cuidado humanizado.",
+      "Oferecer atendimento especializado e humanizado, unindo experiência clínica, atualização científica e tecnologia.",
   },
   {
     titulo: "Nossa Visão",

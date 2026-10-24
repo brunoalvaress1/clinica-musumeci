@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import Icon from "../ui/Icon.jsx";
-import SoundWave from "../ui/SoundWave.jsx";
 import { SITE } from "../../data/site.js";
 
 const fadeUp = {
@@ -28,7 +27,6 @@ function useIsMobile() {
 }
 
 export default function Hero() {
-  const reduce = useReducedMotion();
   const isMobile = useIsMobile();
   const [noVideo, setNoVideo] = useState(false);
   const [needsTap, setNeedsTap] = useState(false);
@@ -74,7 +72,7 @@ export default function Hero() {
           <img
             src={SITE.media.hero}
             alt=""
-            className="w-full object-cover"
+            className="w-full object-cover object-[68%_center]"
             style={{ aspectRatio: VIDEO_RATIO }}
           />
         )}
@@ -112,7 +110,7 @@ export default function Hero() {
           <img
             src={SITE.media.hero}
             alt=""
-            className="absolute inset-0 h-full w-full object-contain"
+            className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
           />
         )}
         {showVideo && (
@@ -129,7 +127,7 @@ export default function Hero() {
             <source src={SITE.media.heroVideo} type="video/mp4" />
           </video>
         )}
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-700/85 via-brand-700/35 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-700/80 via-brand-700/28 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-brand-700/70 to-transparent" />
       </div>
 
@@ -138,7 +136,7 @@ export default function Hero() {
         <motion.div
           initial="hidden"
           animate="show"
-          className="max-w-[34rem] sm:[text-shadow:0_2px_22px_rgba(6,32,38,.55)]"
+          className="max-w-[34rem]"
         >
           <motion.p
             variants={fadeUp}
@@ -175,26 +173,8 @@ export default function Hero() {
             Agendamento simples pelo WhatsApp.
           </motion.p>
 
-          <motion.div variants={fadeUp} custom={3} className="mt-7 sm:mt-9">
-            <SoundWave
-              className="h-9 w-52 opacity-90"
-              color="rgba(224,165,61,.9)"
-              bars={38}
-            />
-          </motion.div>
         </motion.div>
       </div>
-
-      {/* indicador de rolagem (desktop) */}
-      <motion.div
-        aria-hidden
-        className="absolute inset-x-0 bottom-6 z-10 hidden flex-col items-center gap-1 text-white/55 sm:flex"
-        animate={reduce ? undefined : { y: [0, 8, 0] }}
-        transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <span className="text-[0.7rem] uppercase tracking-[0.2em]">Role</span>
-        <Icon name="chevron-down" className="h-5 w-5" />
-      </motion.div>
     </section>
   );
 }

@@ -8,7 +8,8 @@
 export const CATEGORIES = [
   {
     id: "audio",
-    nome: "Audiologia",
+    nome: "Audição",
+    especialidade: "Audiologia",
     icon: "ear",
     img: "audiometria",
     desc: "Avaliação completa da audição, para todas as idades.",
@@ -16,7 +17,8 @@ export const CATEGORIES = [
   },
   {
     id: "otoneuro",
-    nome: "Equilíbrio e otoneurologia",
+    nome: "Tonturas e equilíbrio",
+    especialidade: "Otoneurologia",
     icon: "activity",
     img: "labirinto",
     desc: "Investigação de tontura, vertigem e alterações do equilíbrio.",
@@ -25,6 +27,7 @@ export const CATEGORIES = [
   {
     id: "reabilitacao",
     nome: "Reabilitação auditiva",
+    especialidade: "Próteses e implantes",
     icon: "volume",
     img: "procedimentos",
     desc: "Aparelhos auditivos, treinamento auditivo e indicação de implantes.",
@@ -32,7 +35,8 @@ export const CATEGORIES = [
   },
   {
     id: "video",
-    nome: "Exames por vídeo",
+    nome: "Endoscopia e exames por vídeo",
+    especialidade: "Nariz, garganta e voz",
     icon: "scan",
     img: "endoscopia",
     desc: "Nariz, faringe e laringe avaliados com vídeo em alta definição.",

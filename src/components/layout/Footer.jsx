@@ -12,11 +12,11 @@ export default function Footer() {
       <div className="container-x grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr] lg:py-20">
         <div>
           <Link to="/" className="inline-flex items-center" aria-label={`${SITE.name} — página inicial`}>
-            <Logo light className="h-16 w-auto sm:h-20" />
+            <Logo light className="h-24 w-auto sm:h-28" />
           </Link>
           <p className="mt-5 max-w-[34ch] leading-relaxed">
-            Clínica de otorrinolaringologia em Leme/SP. Exames de ouvido, nariz e
-            garganta para todas as idades, com atendimento humanizado.
+            Experiência e tecnologia em otorrinolaringologia, audição, tonturas e
+            equilíbrio, em Leme/SP.
           </p>
         </div>
 
@@ -29,10 +29,10 @@ export default function Footer() {
         </FooterCol>
 
         <FooterCol title="Exames">
-          <FooterLink to="/exames?cat=audio">Audiologia</FooterLink>
-          <FooterLink to="/exames?cat=otoneuro">Equilíbrio e otoneurologia</FooterLink>
+          <FooterLink to="/exames?cat=audio">Audição</FooterLink>
+          <FooterLink to="/exames?cat=otoneuro">Tonturas e equilíbrio</FooterLink>
           <FooterLink to="/exames?cat=reabilitacao">Reabilitação auditiva</FooterLink>
-          <FooterLink to="/exames?cat=video">Exames por vídeo</FooterLink>
+          <FooterLink to="/exames?cat=video">Endoscopia e exames por vídeo</FooterLink>
         </FooterCol>
 
         <FooterCol title="Contato">
